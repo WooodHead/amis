@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MobileView</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="image/x-icon" rel="shortcut icon" href="/static/favicon_b3b0647.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />          
+    <link rel="stylesheet" href="/pkg/npm_778785c.css" />
+    <link rel="stylesheet" title="default" href="/scss/themes/default_69e18ae.css" />
+    <link
+      rel="stylesheet"
+      title="cxd"
+      disabled href="/scss/themes/cxd_b111c64.css" />
+    <link
+      rel="stylesheet"
+      title="dark"
+      disabled href="/scss/themes/dark_9a76360.css" />
+    <link
+      rel="stylesheet"
+      title="antd"
+      disabled href="/scss/themes/antd_c85cc21.css" />
+    <link rel="stylesheet" href="/scss/helper_fde714c.css" />
+    <style>
+      .app-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+</head>
+
+  <body>
+    <div id="root" class="app-wrapper"></div>  
+<script src="/pkg/npm_a3ebc27.js"></script>
+<script type="text/javascript" src="/pkg/examples/mobile.html_map_619f837.js"></script>
+<script type="text/javascript">
+      const themes = [
+        {
+          label: '默认主题',
+          value: 'default'
+        },
+        {
+          label: '百度云舍',
+          value: 'cxd'
+        },
+        {
+          label: 'Dark',
+          value: 'dark'
+        },
+        {
+          label: 'antd',
+          value: 'antd'
+        }
+      ];
+      const theme = themes[localStorage.getItem('themeIndex') || 0];
+      // mobile 下先禁掉所有外链避免影响
+      document.querySelectorAll('link[title]').forEach(item => {
+        item.disabled = true;
+      });
+      document.querySelector(`link[title=${theme.value}]`).disabled = false;
+      if (theme.value === 'dark') {
+        document.querySelector('body').classList.add('dark');
+      }
+
+      amis.require(['e7fadaf'], function (app) {
+        app.bootstrap(document.getElementById('root'), {});
+      });
+    </script>
+</body>
+</html>
